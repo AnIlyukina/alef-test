@@ -17,9 +17,6 @@
 }
 
 .menu-list__item a{
-  cursor: pointer;
-  color:inherit;
-  text-decoration: none;
   font-size: 14px;
 }
 
