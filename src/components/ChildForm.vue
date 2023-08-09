@@ -1,41 +1,42 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue';
-import { computed, toRefs } from 'vue';
-import UIInput from './UI/UIInput.vue';
+import type { PropType } from "vue";
+import { computed, toRefs } from "vue";
+import UIInput from "./UI/UIInput.vue";
 import { Child } from "../types/user";
 
 const props = defineProps({
   state: {
     type: Array as PropType<Array<Child>>,
     required: true,
-  }
-})
+  },
+});
 
 const { state } = toRefs(props);
 
 const isShowAddButton = computed<boolean>(() => {
-  return state.value.length < 5
-})
+  return state.value.length < 5;
+});
 
-const addChild = ():void => {
+const addChild = (): void => {
   state.value.push({
-    name: '',
-    age: '',
-  })
-}
+    name: "",
+    age: "",
+  });
+};
 
 const deleteChild = (index: number): void => {
-  state.value.splice(index, 1)
-}
+  state.value.splice(index, 1);
+};
 
-const updateName = ({ prop, value}: {prop: number, value: string}):void => {
-  state.value[prop].name = value
-}
+const updateName = ({ prop, value} : {prop: string, value: string}): void => {
+  const index = Number(prop)
+  state.value[index].name = value;
+};
 
-const updateAge = ({ prop, value }: {prop: number, value: string}):void => {
-  state.value[prop].age = value
-}
-
+const updateAge = ({ prop, value} : {prop: string, value: string}): void => {
+  const index = Number(prop)
+  state.value[index].age = value;
+};
 </script>
 
 <template>
@@ -49,23 +50,23 @@ const updateAge = ({ prop, value }: {prop: number, value: string}):void => {
       + Добавить ребенка
     </button>
   </div>
-  <ul
-    v-if="state.length"
+  <ul 
+    v-if="state.length" 
     class="child-list">
-    <li
-      v-for="(child, index) in state"
-      :key="index"
+    <li 
+      v-for="(child, index) in state" 
+      :key="index" 
       class="child-item"
     >
       <u-i-input
         v-model="child.name"
         :label="'Имя'"
-        :prop="index"
+        :prop="`${index}`"
         @update="updateName"
       />
       <u-i-input
         v-model="child.age"
-        :prop="index"
+        :prop="`${index}`"
         :label="'Возраст'"
         @update="updateAge"
       />
@@ -80,7 +81,5 @@ const updateAge = ({ prop, value }: {prop: number, value: string}):void => {
 </template>
 
 <style scoped>
-
-@import '../assets/style/child-form.css';
-
+@import "../assets/style/child-form.css";
 </style>

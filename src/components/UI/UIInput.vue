@@ -1,23 +1,25 @@
 <script setup lang="ts">
-
 import { toRefs } from "vue";
 
 const emit = defineEmits<{
-  update: [value: string],
+  update: [data: {prop: string, value: string}],
 }>();
 
 const props = defineProps<{
-  modelValue: String,
-  label: String,
-  prop: String | Number,
+  modelValue: string;
+  label: string;
+  prop: string;
 }>();
 
-const { prop } = toRefs(props)
+const { prop } = toRefs(props);
 
 const changeValue = (event: Event): void => {
-  emit('update', { prop: prop.value, value: (event.target as HTMLInputElement).value})
-}
-
+  const data = {
+    prop: prop.value,
+    value: (event.target as HTMLInputElement).value,
+  }
+  emit("update", data);
+};
 </script>
 
 <template>
@@ -29,11 +31,11 @@ const changeValue = (event: Event): void => {
       @input="changeValue"
     >
     <label class="input-box__label">
-      {{ label}}
+      {{ label }}
     </label>
   </div>
 </template>
 
 <style scoped>
-@import '../../assets/style/u-i-input.css';
+@import "../../assets/style/u-i-input.css";
 </style>

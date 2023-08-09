@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   padding: 24px 92px;
-  box-shadow: 0 1px 0 0 rgba(17, 17, 17, 0.10);
+  box-shadow: 0 1px 0 0 rgba(17, 17, 17, 0.1);
 }
 
 .menu-list {
@@ -17,17 +17,17 @@
   margin-left: 24px;
 }
 
-.menu-list__item a{
+.menu-list__item a {
   font-size: 14px;
 }
 
 .main-footer {
   padding: 30px 0;
-  background: #FAFAFA;
+  background: #fafafa;
   width: 100%;
 }
 
-.main-footer p{
+.main-footer p {
   margin: 0;
   padding: 0;
   text-align: center;

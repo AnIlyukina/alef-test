@@ -1,42 +1,42 @@
 .child-form {
-    margin: 33px 0 11px;
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
+  margin: 33px 0 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .child-form p {
-    margin: 0;
-    font-family: Montserrat;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 24px;
+  margin: 0;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
 }
 
-.child-form__add-button{
-    padding: 8px 20px;
-    font-family: Montserrat;
-    background-color: #FFF;
-    color: #01A7FD;
-    border-radius: 100px;
-    border: 2px solid #01A7FD;
-    font-size: 14px;
+.child-form__add-button {
+  padding: 8px 20px;
+  font-family: Montserrat;
+  background-color: #fff;
+  color: #01a7fd;
+  border-radius: 100px;
+  border: 2px solid #01a7fd;
+  font-size: 14px;
 }
 
 .child-item {
-    display: flex;
-    gap: 18px;
+  display: flex;
+  gap: 18px;
 }
 
 .child-item__delete-button {
-    background: transparent;
-    border: none;
-    margin-bottom: 10px;
-    color: #01A7FD;
-    font-family: Montserrat;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
+  background: transparent;
+  border: none;
+  margin-bottom: 10px;
+  color: #01a7fd;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
 }

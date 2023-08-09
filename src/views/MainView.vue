@@ -1,49 +1,50 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import { useRouter } from "vue-router";
 
-const router = useRouter()
+const router = useRouter();
 
 const goToUserForm = () => {
   router.push({
-    name: 'UserForm'
-  })
-}
+    name: "UserForm",
+  });
+};
 
 const goToPreview = () => {
   router.push({
-    name: 'Preview'
-  })
-}
-
-
+    name: "Preview",
+  });
+};
 </script>
 
 <template>
   <header class="main-header">
-    <img src="/src/assets/logo.png" alt="logo">
+    <img
+      src="/src/assets/logo.png"
+      alt="logo"
+    >
     <ul class="menu-list">
-      <li class="menu-list__item" @click="goToUserForm">
-        <a href="#">
-          Форма
-        </a>
+      <li
+        class="menu-list__item"
+        @click="goToUserForm"
+      >
+        <a href="#"> Форма </a>
       </li>
-      <li class="menu-list__item" @click="goToPreview">
-        <a href="#">
-          Превью
-        </a>
+      <li
+        class="menu-list__item"
+        @click="goToPreview"
+      >
+        <a href="#"> Превью </a>
       </li>
     </ul>
   </header>
 
-  <slot></slot>
+  <slot />
 
   <footer class="main-footer">
-    <p>
-      all rights reserved
-    </p>
+    <p>all rights reserved</p>
   </footer>
 </template>
 
 <style scoped>
-@import '../assets/style/main-view.css';
+@import "../assets/style/main-view.css";
 </style>
