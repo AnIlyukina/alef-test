@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   padding: 24px 92px;
-  box-shadow: 0px 1px 0px 0px rgba(17, 17, 17, 0.10);
+  box-shadow: 0 1px 0 0 rgba(17, 17, 17, 0.10);
 }
 
 .menu-list {
@@ -10,6 +10,7 @@
   justify-content: center;
   flex-grow: 1;
   color: rgba(17, 17, 17, 0.48);
+  margin-right: 93px;
 }
 
 .menu-list__item + .menu-list__item {

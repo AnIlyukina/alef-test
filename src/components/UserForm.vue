@@ -1,60 +1,64 @@
-<script setup lang="ts">
+<script  lang="ts" setup>
 
-import { reactive } from 'vue';
+import { ref } from 'vue';
+import { useUserStore } from '../stores/user'
+import { storeToRefs } from "pinia";
 
 import UIInput from './UI/UIInput.vue';
+import ChildForm from './ChildForm.vue';
 
-let dataUser = reactive({
+import { User } from "../types/user";
+
+const store = useUserStore()
+
+const { savedUser } = storeToRefs(store)
+
+let initialStateForm = {
   name: '',
   age: '',
-  children: [{
-    name: '',
-    age: '',
-  },
-  {
-    name: '',
-    age: '',
-  }]
-})
+  children : []
+}
+
+let stateForm = ref<User>(savedUser.value ? savedUser.value : {...initialStateForm})
+
+const updateValue = ({prop, value}: {prop: string, value: string}): void => {
+  stateForm.value[prop] = value
+}
+
+const submitForm = () => {
+  store.saveUser(stateForm.value)
+}
 
 </script>
 
 <template>
-  <form class="user-form">
+  <form
+    class="user-form"
+    @submit.prevent="submitForm"
+  >
     <h2 class="user-form__title">Персональные данные</h2>
     <u-i-input
-      v-model="dataUser.name"
-      label="Имя"
+      v-model="stateForm.name"
+      :label="'Имя'"
+      :prop="'name'"
+      @update="updateValue"
       />
     <u-i-input
-      v-model="dataUser.age"
-      label="Возраст"
+      v-model="stateForm.age"
+      :label="'Возраст'"
+      :prop="'age'"
+      @update="updateValue"
     />
-    <div class="user-form__add-child">
-      <p>Дети (макс.5)</p>
-      <button class="user-form__add-button">+ Добавить ребенка</button>
-    </div>
+    <child-form
+      :state="stateForm.children"
+    />
     <div>
-      <ul class="child-list">
-        <li
-          v-for="(child, index) in dataUser.children"
-          :key="index"
-          class="child-item"
-          >
-            <u-i-input
-              v-model="child.name"
-              label="Имя"
-            />
-            <u-i-input
-              v-model="child.age"
-              label="Возраст"
-            />
-            <button class="child-item__delete-button">Удалить</button>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <button class="user-form__save-button">Сохранить</button>
+      <button
+        type="submit"
+        class="user-form__save-button"
+      >
+        Сохранить
+      </button>
     </div>
   </form>
 </template>

@@ -11,8 +11,10 @@
   font-weight: 400;
   line-height: normal;
   color: rgba(17, 17, 17, 0.48);
-  top: 8px;
+  /*top: 8px;*/
   left: 16px;
+  bottom: 8px;
+  transition: bottom .4s;
 }
 
 .input-box__input{
@@ -26,4 +28,9 @@
 
 .input-box__input:focus{
   outline: none;
+}
+.input-box__input:focus ~ .input-box__label,
+.input-box__input:valid ~ .input-box__label,
+.input-box__input:-webkit-autofill ~ .input-box__label {
+  bottom: 27px;
 }

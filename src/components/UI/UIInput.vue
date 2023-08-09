@@ -1,21 +1,36 @@
 <script setup lang="ts">
 
-defineProps<{
+import { toRefs } from "vue";
+
+const emit = defineEmits<{
+  update: [value: string],
+}>();
+
+const props = defineProps<{
   modelValue: String,
   label: String,
+  prop: String | Number,
 }>();
+
+const { prop } = toRefs(props)
+
+const changeValue = (event: Event): void => {
+  emit('update', { prop: prop.value, value: (event.target as HTMLInputElement).value})
+}
 
 </script>
 
 <template>
   <div class="input-box">
-    <label class="input-box__label">
-      {{ label}}
-    </label>
     <input
       :value="modelValue"
       class="input-box__input"
+      required
+      @input="changeValue"
     >
+    <label class="input-box__label">
+      {{ label}}
+    </label>
   </div>
 </template>
 

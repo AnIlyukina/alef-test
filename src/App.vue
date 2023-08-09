@@ -4,14 +4,9 @@ import MainView from './views/MainView.vue';
 </script>
 
 <template>
-  <component
-    :is="MainView"
-  >
+  <main-view>
     <main class="main-content">
       <router-view></router-view>
     </main>
-  </component>
+  </main-view>
 </template>
-
-<style scoped>
-</style>
