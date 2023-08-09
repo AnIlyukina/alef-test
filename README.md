@@ -1,6 +1,7 @@
 # Vue 3 + TypeScript + Vite
 
-Запустить проект 
+Запустить проект:
 
-1 npm i
-2 npm run dev
+1. npm i
+
+2. npm run dev
