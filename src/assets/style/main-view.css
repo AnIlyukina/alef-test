@@ -1,14 +1,25 @@
 .main-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 24px 92px;
-  box-shadow: 0 1px 0 0 rgba(17, 17, 17, 0.1);
+  -webkit-box-shadow: 0 1px 0 0 rgba(17, 17, 17, 0.1);
+          box-shadow: 0 1px 0 0 rgba(17, 17, 17, 0.1);
 }
 
 .menu-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  flex-grow: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   color: rgba(17, 17, 17, 0.48);
   margin-right: 93px;
 }
@@ -19,6 +30,13 @@
 
 .menu-list__item a {
   font-size: 14px;
+  -webkit-transition: color .5s;
+  -o-transition: color .5s;
+  transition: color .5s;
+}
+
+.active-link {
+  color: #000;
 }
 
 .main-footer {

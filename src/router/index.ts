@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 import UserForm from "../components/UserForm.vue";
-import PreviewData from "../components/PreviewData.vue";
+import PreviewUser from "../components/PreviewUser.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/preview",
     name: "Preview",
-    component: PreviewData,
+    component: PreviewUser,
   },
 ];
 

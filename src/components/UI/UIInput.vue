@@ -8,6 +8,7 @@ const emit = defineEmits<{
 const props = defineProps<{
   modelValue: string;
   label: string;
+  inputType: string,
   prop: string;
 }>();
 
@@ -26,6 +27,7 @@ const changeValue = (event: Event): void => {
   <div class="input-box">
     <input
       :value="modelValue"
+      :type="inputType"
       class="input-box__input"
       required
       @input="changeValue"

@@ -14,9 +14,17 @@
 
 .user-form__save-button {
   margin-top: 30px;
-  padding: 10px 20px;
+  max-width: 118px;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
   border-radius: 100px;
   color: #fff;
   border: none;
   background: #01a7fd;
+}
+
+.icon-saved-form {
+  padding: 0;
+  width: 13px;
 }

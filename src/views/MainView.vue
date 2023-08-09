@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
+const route = useRoute();
 
 const goToUserForm = () => {
   router.push({
@@ -25,12 +26,14 @@ const goToPreview = () => {
     <ul class="menu-list">
       <li
         class="menu-list__item"
+        :class="route.name === 'UserForm' ? 'active-link' : ''"
         @click="goToUserForm"
       >
         <a href="#"> Форма </a>
       </li>
       <li
         class="menu-list__item"
+        :class="route.name === 'Preview' ? 'active-link' : ''"
         @click="goToPreview"
       >
         <a href="#"> Превью </a>

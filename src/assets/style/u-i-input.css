@@ -6,12 +6,12 @@
 
 .input-box__label {
   position: absolute;
+  z-index: -1;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   color: rgba(17, 17, 17, 0.48);
-  /*top: 8px;*/
   left: 16px;
   bottom: 8px;
   transition: bottom 0.4s;
@@ -23,7 +23,7 @@
   padding: 26px 16px 6px;
   border-radius: 4px;
   border: 1px solid #f1f1f1;
-  background: #fff;
+  background: transparent;
 }
 
 .input-box__input:focus {
@@ -33,4 +33,14 @@
 .input-box__input:valid ~ .input-box__label,
 .input-box__input:-webkit-autofill ~ .input-box__label {
   bottom: 27px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
 }

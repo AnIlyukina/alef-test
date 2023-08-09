@@ -2,7 +2,7 @@
 import UIInput from "./UI/UIInput.vue";
 import ChildForm from "./ChildForm.vue";
 
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 
@@ -12,11 +12,14 @@ const store = useUserStore();
 
 const { savedUser } = storeToRefs(store);
 
+
 const initialStateForm = {
   name: "",
   age: "",
   children: [],
 };
+
+const isSavedForm = ref(!!savedUser.value)
 
 const currentState = savedUser.value
   ? savedUser.value
@@ -24,12 +27,19 @@ const currentState = savedUser.value
 
 const stateForm = ref<User>(currentState);
 
+watch(stateForm.value, (value) => {
+  if (value && isSavedForm.value) {
+    isSavedForm.value = false
+  }
+})
+
 const updateValue = ({ prop, value} : {prop: string, value: string}): void => {
   stateForm.value[prop] = value;
 };
 
 const submitForm = () => {
   store.saveUser(stateForm.value);
+  isSavedForm.value = true
 };
 </script>
 
@@ -47,11 +57,13 @@ const submitForm = () => {
       v-model="stateForm.name"
       :label="'Имя'"
       :prop="'name'"
+      :input-type="'text'"
       @update="updateValue"
     />
     <u-i-input
       v-model="stateForm.age"
       :label="'Возраст'"
+      :input-type="'number'"
       :prop="'age'"
       @update="updateValue"
     />
@@ -61,7 +73,13 @@ const submitForm = () => {
         type="submit"
         class="user-form__save-button"
       >
-        Сохранить
+        <img 
+          v-if="isSavedForm"
+          class="icon-saved-form"
+          src="/src/assets/icons/check-mark.png">
+        <span v-else>
+          Сохранить
+        </span>
       </button>
     </div>
   </form>

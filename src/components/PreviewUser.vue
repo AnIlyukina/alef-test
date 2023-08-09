@@ -44,5 +44,5 @@ const { savedUser } = storeToRefs(store);
 </template>
 
 <style scoped>
-@import "../assets/style/preview.css";
+@import "../assets/style/preview-user.css";
 </style>
